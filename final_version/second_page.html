@@ -32,29 +32,62 @@
         <button type="button" class="throw_trash_btn">작성 완료</button>
       </div>
     </div>
-    <div class="trash" style="opacity: 0; transition: opacity 1s, transform 1s">
-      <img
-        src="/Users/nawon/Desktop/멋사/미니프로젝트/final_version/IMG_8677 복사본.PNG"
-        class="img_trash"
-      />
+    <div class="trash">
+      <div class="ballAndBtn">
+        <img src="IMG_8677 복사본.PNG" class="trash_img" />
+        <button type="button" class="throw_paperBall">힘짜속 버리기</button>
+      </div>
     </div>
     <script>
       const throwTrashBtn = document.querySelector(".throw_trash_btn");
       const secondPage = document.querySelector(".second_page");
-      const trash = document.querySelector(".trash");
+      const trashImage = document.querySelector(".trash");
+      //다은님 연결
+      // const throwPaperBallBtn = document.querySelector('.throw_paperBall');
+      const textInput = document.querySelector(".text");
+      const maxCharacters = 500;
 
       throwTrashBtn.addEventListener("click", () => {
-        secondPage.classList.add("collapsed");
-
-        setTimeout(() => {
+        secondPage.classList.add("disappear");
+        secondPage.addEventListener("animationend", () => {
           secondPage.style.display = "none";
-          trash.style.display = "block";
-          setTimeout(() => {
-            trash.style.opacity = "1";
-            trash.style.transform = "scale(1)";
-          }, 100);
-        }, 1000);
+          trashImage.style.display = "block";
+          trashImage.classList.add("appear");
+        });
       });
+
+      // throwPaperBallBtn.addEventListener("click", () => {
+      //   window.location.href = "다은님주소.html";
+      // });
+      textInput.addEventListener("input", () => {
+        let text = textInput.innerText;
+
+        if (text.length > maxCharacters) {
+          text = text.slice(0, maxCharacters);
+          textInput.innerText = text;
+          placeCaretAtEnd(textInput);
+        }
+      });
+
+      function placeCaretAtEnd(element) {
+        element.focus();
+        if (
+          typeof window.getSelection !== "undefined" &&
+          typeof document.createRange !== "undefined"
+        ) {
+          const range = document.createRange();
+          range.selectNodeContents(element);
+          range.collapse(false);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        } else if (typeof document.body.createTextRange !== "undefined") {
+          const textRange = document.body.createTextRange();
+          textRange.moveToElementText(element);
+          textRange.collapse(false);
+          textRange.select();
+        }
+      }
     </script>
   </body>
 </html>

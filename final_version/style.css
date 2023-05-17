@@ -33,7 +33,7 @@
   margin: auto;
   padding: 3%;
   border: 1px solid ghostwhite;
-  width: 20%;
+  width: 60%;
   height: 70%;
   position: fixed;
   top: 50%;
@@ -70,7 +70,7 @@
   margin: auto;
   padding: 3%;
   border: 1px solid ghostwhite;
-  width: 20%;
+  width: 60%;
   height: 70%;
   top: 50%;
   left: 50%;
@@ -79,14 +79,54 @@
   border-radius: 1rem;
   font-size: 80%;
 }
+.second_page.disappear {
+  animation: fadeOutCenter 1s;
+}
+
+.trash {
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  display: none;
+}
+
+.trash.appear {
+  animation: fadeIn 0.001s;
+  animation-delay: 1s;
+  opacity: 1;
+  display: block;
+}
+
+@keyframes fadeOutCenter {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .paper {
   position: absolute;
   height: 65%;
-  width: 80%;
+  width: 50%;
   background: rgba(255, 255, 255, 0.9);
-  /* margin: -275px -225px; */
-  /* left: 50%;*/
+  /* margin: -275px -225px;  */
   top: 23%;
+  left: 27%;
   box-shadow: 0px 0px 5px 0px #888;
 }
 .paper::before {
@@ -118,6 +158,7 @@
   overflow: hidden;
   outline: none;
   text-align: start;
+  overflow: scroll;
 }
 .holes {
   position: absolute;
@@ -152,13 +193,24 @@
   border-radius: 0.6rem;
   font-weight: bold;
   border: 1px solid #99ccffe8;
-  margin-left: 3%;
+  position: fixed;
+  left: 47%;
 }
-.trash {
-  text-align: center;
-  top: 30%;
-}
-.img_trash {
-  height: 100px;
+.trash_img {
   width: 100px;
+  height: 100px;
+  padding-left: 7%;
+}
+.throw_paperBall {
+  background-color: ghostwhite;
+  width: 150px;
+  height: 35px;
+  border-radius: 1rem;
+  font-weight: bold;
+  border: 1px solid ghostwhite;
+}
+.ballAndBtn {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
