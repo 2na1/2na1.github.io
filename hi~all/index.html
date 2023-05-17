@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>self-introduction</title>
+    <style>
+      .img{
+        left:60%;
+      }
+      .class{
+        display: flex;
+        flex-direction: row;
+      }
+      .my_info{
+        text-align: center;
+        font-size: x-large;
+        font-weight: bolder;
+      }
+      .btn_btn-success {
+        background-color: cornflowerblue;
+        opacity: 0.8;
+        position: fixed;
+        top: 95%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.2rem;
+        width: 150px;
+        height: 50px;
+        border: 1px solid cornflowerblue;
+        border-radius: 1rem;
+        font-weight: bolder;
+      }
+      .btn_btn-primary {
+        background-color: cornflowerblue;
+        opacity: 0.8;
+        position: fixed;
+        top: 117%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.2rem;
+        width: 150px;
+        height: 50px;
+        border: 1px solid cornflowerblue;
+        border-radius: 1rem;
+        font-weight: bolder;
+      }
+
+      .container {
+        position: fixed;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: larger;
+        text-align: center;
+        width: 80%;
+        height: 80%;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        overflow: auto;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(234, 142, 4, 0.98);
+        
+      }
+      .modal-content {
+        background-color: ghostwhite;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5cm;
+        justify-content: space-between;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid ghostwhite;
+        border-radius: 1rem;
+        width: 60%;
+        height:80%;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+      .modal-body {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5cm;
+      }
+
+      .formgroup {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .bubble01
+{
+position: relative;
+width: 250px;
+height: 300px;
+padding: 3px;
+background: #FBFFFF;
+-webkit-border-radius: 23px;
+-moz-border-radius: 23px;
+border-radius: 23px;
+border: #7F7F7F solid 4px;
+}
+
+.bubble01:after
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 24px 12px 0;
+border-color: #FBFFFF transparent;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+width: 0;
+z-index: 1;
+bottom: -24px;
+left: 202px;
+}
+
+.bubble01:before
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 27px 15px 0;
+border-color: #7F7F7F transparent;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+width: 0;
+z-index: 0;
+bottom: -31px;
+left: 199px;
+}
+.major{
+  font-weight:bold;
+  text-align: center;
+}
+.my_mj{
+  font-weight:400;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="all">
+    <div class="container">
+      <div class="hi">
+        <h1>안녕하세요<br />제 이름은 <font size="500" color="orange">이나원</font size="500" color="orange">입니다!</h1>
+        <h1>저의 목표는</h1>
+        <h1><font size="300" color="orange">소통할 줄 아는 개발자</font size="300" color="orange">로 성장하는 것 입니다!</h1>
+        <div class="my_img">
+          <img src="hi_all.png" /></div>
+        </button>
+          <button type="button"
+          id="btn"
+          class="btn_btn-primary"
+          data-toggle="modal"
+          data-target="#mo1">click me!</button>
+      </div>
+  </div>
+</div>
+    <div
+      class="modal fade"
+      id="mo1"
+      tabindex="-1"
+      aria-labelledby="'exampleModalLabel"
+      aria-hidden="true"
+    >
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="my_info">
+            <p>LEE NAWON</p></div>
+
+            <div class="bubble01">
+              <div class="major"><p>전공/이중전공</p>
+                <div class="my_mj"><p>통계학과/컴퓨터 공학과</p></div>
+              <div class="major"><p>email</p>
+                <div class="my_mj">: dlskdnjs030425@naver.com</div>
+              <div class="major"><p>instagram</p>
+                <div class="my_mj">@241_o_o</div>
+              <div class="major"><p>mbti</p>
+                <div class="my_mj">INFP</div>
+              </div>
+                  
+                  </div>
+                </div>
+          <div class="img">
+            <img width="90%" src="my_info.png">
+          </div>
+            <button type="button" class="btn_btn-success" data-dismiss="modal">
+                Thanks!
+              </button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 모달창 열기
+    const btn = document.getElementById("btn");
+    const modal = document.getElementById("mo1");
+
+    btn.addEventListener("click", function () {
+      modal.style.display = "block";
+    });
+
+    // 모달창 닫기
+    const closeBtn = document.getElementsByClassName("btn_btn-success")[0];
+
+    closeBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+
+
+  </script>
+  </body>
+</html>
